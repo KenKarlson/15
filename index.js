@@ -21,7 +21,12 @@ const tasks = [
     text: 'Выполнить ДЗ после урока',
   }
 ];
-
+function createHeader(){
+  const header = document.createElement('header');
+  header.classList.add('header');
+  header.innerText='Hello ToDo';
+  document.body.prepend(header);
+}
 function createTasksElements(task){
   const taskItem = document.createElement('div');
   taskItem.classList.add('task-item');
@@ -115,7 +120,6 @@ form.addEventListener('submit', function(event) {
   }
 });
 
-
 tasks.forEach(task => {
   const taskElement = createTasksElements(task);
   tasksList.appendChild(taskElement);    
@@ -125,3 +129,4 @@ tasks.forEach(task => {
 
 //
 
+createHeader();
