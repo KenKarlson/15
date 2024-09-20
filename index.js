@@ -128,5 +128,11 @@ tasks.forEach(task => {
 //createModal();
 
 //
+const taskItem = document.querySelectorAll('.task-item');
+console.log(taskItem);
+taskItem.forEach(task =>{
+  console.log(task.innerText);
+  
+});
 
 createHeader();
