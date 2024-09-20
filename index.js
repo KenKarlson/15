@@ -134,5 +134,40 @@ taskItem.forEach(task =>{
   console.log(task.innerText);
   
 });
+//Работа с кнопками Удалить 
+const createTooltip = (text)=>{
+  const tooltip = document.createElement('span');
+  tooltip.classList.add('tooltip');
+  tooltip.innerText = text;
+  return tooltip;
+};
+
+document.addEventListener('mouseover', (event)=>{
+  //console.log(event);
+  const { target } = event;
+  //console.log(target);
+  
+  const isOverDeleteButton = target.className.includes('task-item__delete-button');
+  if(isOverDeleteButton){
+    const taskItemHTML = target.closest('.task-item');
+    const taskText = taskItemHTML.querySelector('.task-item__text');
+    
+    if(taskText){
+      const tooltipHTML = createTooltip(`Удалить задачу\n "${taskText.innerText}" ?`);
+      target.append(tooltipHTML); 
+    }   
+  }
+});
+document.addEventListener('mouseout', (event)=>{
+  const { target } = event;
+  const isOverFromDeleteButton   = target.className.includes('task-item__delete-button');
+  if(isOverFromDeleteButton){
+    console.log('mouse out');
+    const tooltip = document.querySelector('.tooltip');
+    if(tooltip){
+      tooltip.remove();
+    }
+  }
+});
 
 createHeader();
