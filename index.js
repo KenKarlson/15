@@ -29,6 +29,17 @@ function createHeader(){
   header.classList.add('header');
   header.innerText='Hello ToDo';
   document.body.prepend(header);
+  //Button to night or day? test test test !!!!!!!!
+  const switchButton = document.createElement('label');
+  switchButton.classList.add('switch');
+  const inputButton = document.createElement('input');
+  inputButton.type='checkbox';
+  const sliderButton = document.createElement('span');
+  sliderButton.classList.add('slider','round');
+  switchButton.appendChild(inputButton);
+  switchButton.appendChild(sliderButton);
+  header.appendChild(switchButton);
+  
 }
 function createTasksElements(task){
   const taskItem = document.createElement('div');
@@ -138,7 +149,6 @@ tasks.forEach(task => {
 });
 
 //createModal();
-
 //
 const taskItem = document.querySelectorAll('.task-item');
 console.log(taskItem);
