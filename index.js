@@ -6,17 +6,20 @@ const errorMessage = 'Название задачи не должно быть �
 const informMessage = 'Такая задача присутствует в списке';
 const tasks = [
   {
-    id: '1138465078061',
+    //id: '1138465078061',
+    id: '1',
     completed: false,
     text: 'Посмотреть новый урок по JavaScript',
   },
   {
-    id: '1138465078062',
+    //id: '1138465078062',
+    id: '2',
     completed: false,
     text: 'Выполнить тест после урока',
   },
   {
-    id: '1138465078063',
+    //id: '1138465078063',
+    id: '3',
     completed: false,
     text: 'Выполнить ДЗ после урока',
   }
@@ -30,8 +33,16 @@ function createHeader(){
 function createTasksElements(task){
   const taskItem = document.createElement('div');
   taskItem.classList.add('task-item');
-  taskItem.dataset.taskId = task.id;
-
+  //Creata ID to task ???????????????????????????
+  taskItem.dataset.taskId = task.id
+  // const createId = ()=>{return tasks.length + 1;};
+  // if(task.id){
+  //   taskItem.dataset.taskId = task.id;
+  // }else{
+  //   taskItem.dataset.taskId = createId();
+  // };
+  //task.id;
+  
   const mainContainer = document.createElement('div');
   mainContainer.classList.add('task-item__main-container');
 
@@ -108,7 +119,8 @@ form.addEventListener('submit', function(event) {
     removeErrorElement();
     const task = {
       //id: Math.random().toString(36).substr(2, 9),
-      id: Date.now().toString(),
+      //id: Date.now().toString(),
+      id: tasks.length + 1,
       completed: false,
       text: inputText.value,
     };
